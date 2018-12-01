@@ -21,12 +21,15 @@ logger.setLevel(logging.DEBUG)
 
 
 def shutdown_hook(kafka_consumer, hbase_connection):
-
+	"""
+	A shutdown hook to be called before shutdown
+	"""
 	try:
 		kafka_consumer.close()
 		hbase_connection.close()
 	except Exception as e:
 		logger.warn('Failed to close kafka consumer or hbase connection: %s', str(e))
+
 
 # 1)Row key: Symbol
 #				family:price
@@ -43,6 +46,7 @@ def shutdown_hook(kafka_consumer, hbase_connection):
 #BTC-USD:timestamp1		6000
 #	..	:tmiestamp2  	6100
 # 	.. : timestamp3 	6200
+
 def persist_data(data, hbase_connection, data_table):
 	"""
 	Persist data into hbase
