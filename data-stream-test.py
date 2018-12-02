@@ -21,7 +21,6 @@ test_input = [
 		'LastTradePrice':'20000'}),
 ]
 
-
 def make_dstream_helper(sc, ssc, topic):
 	input_rdds = [sc.parallelize(test_input, 1)]
 	input_stream = ssc.queueStream(input_rdds)
