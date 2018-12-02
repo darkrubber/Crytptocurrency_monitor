@@ -47,6 +47,7 @@ def shutdown_hook(kafka_consumer, hbase_connection):
 #	..	:tmiestamp2  	6100
 # 	.. : timestamp3 	6200
 
+
 def persist_data(data, hbase_connection, data_table):
 	"""
 	Persist data into hbase
