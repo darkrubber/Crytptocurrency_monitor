@@ -11,7 +11,6 @@ logger = logging.getLogger('redis-publisher')
 logger.setLevel(logging.DEBUG)
 
 def shutdown_hook(kafka_consumer):
-
 	try:
 		kafka_consumer.close(10)
 	except Exception as e:
